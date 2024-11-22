@@ -8,7 +8,7 @@ A project to compile, deploy and interact with a smart contract using js.
 ## Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/your-repo/codein-usingjs.git
+git clone https://github.com/saatvik333/codein-usingjs.git
 ```
 2. Install dependencies
 ```bash
