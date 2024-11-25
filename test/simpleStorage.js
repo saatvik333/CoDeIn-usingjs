@@ -1,6 +1,4 @@
-import { JsonRpcProvider } from "ethers";
-import { Wallet } from 'ethers';
-import { Contract } from 'ethers';
+import { JsonRpcProvider, Wallet, Contract } from 'ethers';
 
 async function interactWithContract(
     abi,
@@ -13,8 +11,8 @@ async function interactWithContract(
 
     const contract = new Contract(contractAddress, abi, wallet);
 
-    console.log('Setting value to 42...');
-    const tx = await contract.setValue(42);
+    console.log('Setting value to 69...');
+    const tx = await contract.setValue(69);
     await tx.wait();
     console.log('Value set!');
 

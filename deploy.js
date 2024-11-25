@@ -3,7 +3,7 @@ import {
     // Wallet as _Wallet,
     // ContractFactory as _ContractFactory,
 } from 'ethers';
-import compileContract from './compile.js';
+import { compileContract } from './compile.js';
 import { JsonRpcProvider } from 'ethers';
 import { Wallet } from 'ethers';
 import { ContractFactory } from 'ethers';
@@ -14,8 +14,10 @@ async function deployContract(contractFileName, providerUrl, privateKey) {
     const provider = new JsonRpcProvider(providerUrl);
     const wallet = new Wallet(privateKey, provider);
 
+    const constructorArgs = ['Confidential Token', 'CTK'];
+
     const factory = new ContractFactory(abi, bytecode, wallet);
-    const contract = await factory.deploy();
+    const contract = await factory.deploy(...constructorArgs);
     console.log('Contract deployed at:', await contract.getAddress());
     await contract.waitForDeployment();
     return { contract, abi };

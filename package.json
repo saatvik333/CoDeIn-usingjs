@@ -5,7 +5,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write .",
-        "format-check": "prettier --check ."
+        "format-check": "prettier --check .",
+        "deploy": "node main.js"
     },
     "type": "module",
     "keywords": [],
@@ -13,8 +14,11 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
+        "@openzeppelin/contracts": "^5.1.0",
         "dotenv": "^16.4.5",
         "ethers": "^6.13.4",
+        "fhevm": "^0.5.9",
+        "fhevmjs": "^0.5.8",
         "prettier": "^3.3.3",
         "solc": "^0.8.28"
     }

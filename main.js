@@ -1,5 +1,5 @@
 import deployContract from './deploy.js';
-import interactWithContract from './interact.js';
+import interactWithEncryptedERC20 from './test/erc20.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,7 +10,7 @@ dotenv.config();
 
     // Deploy the contract
     const { contract, abi } = await deployContract(
-        'SimpleStorage.sol',
+        'EncryptedERC20.sol',
         providerUrl,
         privateKey,
     );
@@ -18,5 +18,10 @@ dotenv.config();
     console.log('Contract Address:', await contract.getAddress());
 
     // Interact with the deployed contract
-    await interactWithContract(abi, await contract.getAddress(), providerUrl, privateKey);
+    await interactWithEncryptedERC20(
+        abi,
+        await contract.getAddress(),
+        providerUrl,
+        privateKey,
+    );
 })();
