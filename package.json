@@ -17,9 +17,13 @@
         "@openzeppelin/contracts": "^5.1.0",
         "dotenv": "^16.4.5",
         "ethers": "^6.13.4",
+        "extra-bigint": "^1.2.0",
         "fhevm": "^0.5.9",
         "fhevmjs": "^0.5.8",
+        "fs-extra": "^11.2.0",
+        "path": "^0.12.7",
         "prettier": "^3.3.3",
-        "solc": "^0.8.28"
+        "solc": "^0.8.28",
+        "sqlite3": "^5.1.7"
     }
 }

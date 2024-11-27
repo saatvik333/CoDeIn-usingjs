@@ -1,8 +1,7 @@
-import {
-    // providers as _providers,
-    // Wallet as _Wallet,
-    // ContractFactory as _ContractFactory,
-} from 'ethers';
+import {} from // providers as _providers,
+// Wallet as _Wallet,
+// ContractFactory as _ContractFactory,
+'ethers';
 import { compileContract } from './compile.js';
 import { JsonRpcProvider } from 'ethers';
 import { Wallet } from 'ethers';
