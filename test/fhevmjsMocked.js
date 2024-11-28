@@ -7,6 +7,9 @@ import * as fs from 'fs';
 import { Keccak } from 'sha3';
 import { isAddress } from 'web3-validator';
 
+import { Buffer } from 'buffer';
+// import { toBigIntLE } from 'bigint-buffer';
+
 import { awaitCoprocessor, getClearText } from './coprocessorUtils.js';
 
 const parsedEnvACL = dotenv.parse(

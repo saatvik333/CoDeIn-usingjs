@@ -2,7 +2,11 @@ import dotenv from 'dotenv';
 import { log2 } from 'extra-bigint';
 import * as fs from 'fs';
 import { ethers } from 'ethers';
-import { Database } from 'sqlite3';
+// import Database from 'sqlite3';
+import sqlite3 from 'sqlite3';
+const { Database } = sqlite3;
+
+
 
 const parsedEnvCoprocessor = dotenv.parse(
     fs.readFileSync('node_modules/fhevm/lib/.env.exec'),
@@ -23,7 +27,7 @@ const contractABI = JSON.parse(
     fs.readFileSync('abi/TFHEExecutor.json').toString(),
 ).abi;
 
-const iface = new ethers.utils.Interface(contractABI);
+const iface = new ethers.Interface(contractABI);
 
 const functions = iface.fragments.filter(
     (fragment) => fragment.type === 'function',
@@ -1043,7 +1047,7 @@ async function getAllPastTransactionHashes() {
     const latestBlockNumber = await provider.getBlockNumber();
     const txHashes = [];
 
-    if (hre.__SOLIDITY_COVERAGE_RUNNING !== true) {
+    if (process.env.__SOLIDITY_COVERAGE_RUNNING !== true) {
         // evm_snapshot is not supported in coverage mode
         [lastBlockSnapshot, lastCounterRand] = await provider.send(
             'get_lastBlockSnapshot',
@@ -1063,7 +1067,7 @@ async function getAllPastTransactionHashes() {
         });
     }
     firstBlockListening = latestBlockNumber + 1;
-    if (hre.__SOLIDITY_COVERAGE_RUNNING !== true) {
+    if (process.env.__SOLIDITY_COVERAGE_RUNNING !== true) {
         // evm_snapshot is not supported in coverage mode
         await provider.send('set_lastBlockSnapshot', [firstBlockListening]);
     }
